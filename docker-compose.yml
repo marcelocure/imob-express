@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: imob-express-mongodb
+    restart: unless-stopped
+    ports:
+      - "2701:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user1
+      MONGO_INITDB_ROOT_PASSWORD: pwd1
+      MONGO_INITDB_DATABASE: imob_express_dev
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - imob-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  imob-network:
+    driver: bridge

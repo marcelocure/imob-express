@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imob Express API</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Imob Express API</h1>
+            <p>Real Estate Management System</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Welcome to Imob Express API</h2>
+                <p>This is a basic Express.js application structure for a real estate management system.</p>
+                
+                <h3>Available Endpoints</h3>
+                <div class="api-endpoint">
+                    <span class="method get">GET</span>
+                    <strong>/</strong> - Welcome message
+                </div>
+                <div class="api-endpoint">
+                    <span class="method get">GET</span>
+                    <strong>/health</strong> - Health check
+                </div>
+                <div class="api-endpoint">
+                    <span class="method get">GET</span>
+                    <strong>/api</strong> - API information
+                </div>
+                <div class="api-endpoint">
+                    <span class="method get">GET</span>
+                    <strong>/api/customers</strong> - Get all customers
+                </div>
+                <div class="api-endpoint">
+                    <span class="method get">GET</span>
+                    <strong>/api/customers/:id</strong> - Get customer by ID
+                </div>
+                <div class="api-endpoint">
+                    <span class="method post">POST</span>
+                    <strong>/api/customers</strong> - Create new customer
+                </div>
+                <div class="api-endpoint">
+                    <span class="method get">GET</span>
+                    <strong>/api/health</strong> - Database health check
+                </div>
+
+                <h3>Test API</h3>
+                <button class="btn" onclick="testAPI.health()">Test Health</button>
+                <button class="btn" onclick="testAPI.api()">Test API</button>
+                <button class="btn" onclick="testAPI.customers()">Test Customers</button>
+
+                <h3>Project Structure</h3>
+                <pre>
+imob-express/
+├── app.js                 # Main application file
+├── package.json           # Dependencies and scripts
+├── .env                   # Environment variables
+├── .gitignore            # Git ignore rules
+├── routes/               # Route handlers
+│   ├── index.js          # Main routes
+│   └── api.js            # API routes
+├── middleware/           # Custom middleware
+│   ├── auth.js           # Authentication
+│   ├── validation.js     # Input validation
+│   └── errorHandler.js   # Error handling
+├── models/               # Data models
+│   └── Customer.js       # Customer model
+├── config/               # Configuration files
+│   ├── index.js          # Main config
+│   ├── database.js       # Database config
+│   └── jwt.js            # JWT config
+├── public/               # Static files
+│   ├── css/
+│   │   └── style.css     # Styles
+│   └── js/
+│       └── app.js        # Client-side JS
+└── views/                # Templates
+    └── index.html        # Main page
+                </pre>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Imob Express. Built with Express.js</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
