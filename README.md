@@ -26,41 +26,6 @@ A modern, type-safe Express.js application for real estate management, built wit
 - **Strict TypeScript** - Maximum type safety
 - **Debug Utilities** - Advanced logging and monitoring
 
-## 📁 Project Structure
-
-```
-src/
-├── app.ts                 # Main application entry point
-├── config/                # Configuration files
-│   ├── index.ts          # Main configuration
-│   ├── database.ts       # Database configuration
-│   ├── mongodb.ts        # MongoDB connection management
-│   └── jwt.ts            # JWT configuration
-├── middleware/           # Express middleware
-│   ├── auth.ts           # Authentication middleware
-│   ├── errorHandler.ts   # Error handling middleware
-│   └── validation.ts     # Input validation middleware
-├── models/               # Mongoose data models
-│   └── Customer.ts       # Customer model with full typing
-├── routes/               # API route handlers
-│   ├── index.ts          # Main routes
-│   ├── auth.ts           # Authentication routes
-│   └── customer.ts       # Customer CRUD operations
-├── types/                # TypeScript type definitions
-│   └── index.ts          # Shared interfaces and types
-└── utils/                # Utility functions
-    └── debug.ts          # Logging and debugging utilities
-
-dist/                     # Compiled JavaScript output
-public/                   # Static files
-├── css/
-│   └── style.css
-├── js/
-│   └── app.js
-└── views/
-    └── index.html
-```
-
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
@@ -69,11 +34,7 @@ public/                   # Static files
 - npm or yarn
 
 ### Installation
-
-1. **Clone and install dependencies:**
-```bash
-git clone <repository-url>
-cd imob-express
+```
 npm install
 ```
 
@@ -133,21 +94,21 @@ Create a `.env` file with the following variables:
 
 ```env
 # Server Configuration
-NODE_ENV=development
-PORT=8080
-API_VERSION=v1
+NODE_ENV
+PORT
+API_VERSION
 
 # Database Configuration
-MONGODB_URI=mongodb://user1:pwd1@localhost:2701/imob_express_dev?authSource=imob_express_dev
+MONGODB_URI
 
 # JWT Configuration
-JWT_SECRET=your-super-secret-jwt-key-change-in-production
-JWT_EXPIRES_IN=24h
-JWT_ISSUER=imob-express
-JWT_AUDIENCE=imob-express-users
+JWT_SECRET
+JWT_EXPIRES_IN
+JWT_ISSUER
+JWT_AUDIENCE
 
 # CORS Configuration
-CORS_ORIGIN=*
+CORS_ORIGIN
 ```
 
 ## 🏗️ TypeScript Features
@@ -163,25 +124,6 @@ CORS_ORIGIN=*
 - **Source Maps**: Enhanced debugging experience
 - **Declaration Files**: Generated `.d.ts` files for better IDE support
 
-### Example Type Definitions
-```typescript
-interface ICustomer extends Document {
-  _id: string;
-  document: string;
-  name: string;
-  email: string;
-  role: 'admin' | 'agent';
-  isActive: boolean;
-  profile: {
-    phone?: string;
-    avatar?: string;
-    bio?: string;
-  };
-  createdAt: Date;
-  updatedAt: Date;
-}
-```
-
 ## 🔐 Authentication
 
 The application uses JWT-based authentication with the following flow:
@@ -191,25 +133,6 @@ The application uses JWT-based authentication with the following flow:
 3. **Authorization**: Include token in `Authorization: Bearer <token>` header
 4. **Protection**: All routes except `/auth/token` require authentication
 
-## 📊 Database Schema
-
-### Customer Model
-```typescript
-{
-  document: string,        // Unique 11-character document
-  name: string,           // Customer name (2-50 chars)
-  email: string,          // Unique email address
-  role: 'admin' | 'agent', // User role
-  isActive: boolean,      // Soft delete flag
-  profile: {
-    phone?: string,       // Optional phone number
-    avatar?: string,      // Optional avatar URL
-    bio?: string          // Optional bio (max 500 chars)
-  },
-  createdAt: Date,        // Auto-generated
-  updatedAt: Date         // Auto-generated
-}
-```
 
 ## 🚦 Error Handling
 
@@ -220,24 +143,6 @@ The application includes comprehensive error handling:
 - **JWT Errors**: Token expiration and invalid token handling
 - **HTTP Errors**: Standard HTTP status codes with meaningful messages
 
-## 🔍 Validation
-
-Input validation is handled using Zod schemas:
-
-```typescript
-const CustomerInput = z.object({
-  document: z.string(),
-  name: z.string(),
-  email: z.string().email(),
-  role: z.enum(['admin', 'agent']).optional(),
-  isActive: z.boolean().optional(),
-  profile: z.object({
-    phone: z.string().optional(),
-    avatar: z.string().optional(),
-    bio: z.string().optional(),
-  }).optional(),
-});
-```
 
 ## 🐳 Docker Support
 
@@ -282,17 +187,6 @@ This project was successfully migrated from JavaScript to TypeScript, including:
 4. Add tests for new functionality
 5. Submit a pull request
 
-## 📄 License
-
-ISC License - see LICENSE file for details
-
-## 🆘 Support
-
-For issues and questions:
-- Check the existing issues
-- Create a new issue with detailed description
-- Include error logs and environment details
-
 ---
 
-**Built with ❤️ using TypeScript, Express.js, and MongoDB**
+**Built using TypeScript, Express.js, and MongoDB**
